@@ -30,7 +30,7 @@ class AuthController extends Controller
             else
             {
                 return response()->json([
-                    'message' => 'Your Account is suspended, please contact Admin.'
+                    'message' => 'Account suspended, please contact your admin.'
                 ], 401);
             }
 

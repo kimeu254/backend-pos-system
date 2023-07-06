@@ -16,14 +16,14 @@ class CheckBanned
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->status === 0 )
+        if (auth()->check() && !auth()->user()->status )
         {
             Auth::user()->tokens->each(function ($token) {
                 $token->delete();
             });
 
             return response()->json([
-                'message' => 'Your Account is suspended, please contact Admin.'
+                'message' => 'Account suspended, please contact your admin.'
             ]);
         }
 

@@ -32,7 +32,7 @@ class AccountController extends Controller
             if (strcmp($request->get('old_password'), $request->new_password) == 0)
             {
                 return response()->json([
-                    "message" => "New Password cannot be same as your Current Password!"
+                    "message" => "New password cannot be same as the current!"
                 ], 401);
             }
 
