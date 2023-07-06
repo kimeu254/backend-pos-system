@@ -34,7 +34,7 @@ class ImageService
         $name = time() . '.' . $extension;
         $image->save($path.$name);
 
-        if ($methodType === 'store') {
+        if ($methodType === 'store' && $model->user_id) {
             $model->user_id = Auth::user()->id;
         }
 

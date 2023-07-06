@@ -185,4 +185,28 @@ class BrandController extends Controller
             ], 400);
         }
     }
+
+    public function destroyPicture(string $id): JsonResponse
+    {
+        try
+        {
+            $brand = Brand::findOrFail($id);
+
+            if ($brand->image)
+            {
+                (new DestroyImageService)->destroyImage($brand,'app/public/brands/');
+            }
+
+            return response()->json([
+                'message' => 'Image removed.'
+            ]);
+        }
+        catch (\Exception $e)
+        {
+            return response()->json([
+                'message' => 'Oops! Something went wrong.',
+                'error' => $e->getMessage()
+            ], 400);
+        }
+    }
 }

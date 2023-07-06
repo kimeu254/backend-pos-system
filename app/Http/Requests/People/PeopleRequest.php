@@ -14,7 +14,12 @@ class PeopleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name','email','contact','country','city','address'
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'address' => 'required'
         ];
     }
 }

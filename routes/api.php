@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/taxes','index');
         Route::get('/taxes/search','search');
         Route::get('/tax/{id}','show');
+        Route::post('/tax/new','store');
         Route::put('/tax/edit/{id}','update');
         Route::delete('/tax/remove/{id}','destroy');
     });
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/units','index');
         Route::get('/units/search','search');
         Route::get('/unit/{id}','show');
+        Route::post('/unit/new','store');
         Route::put('/unit/edit/{id}','update');
         Route::delete('/unit/remove/{id}','destroy');
     });
@@ -72,6 +74,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/barcode-types','index');
         Route::get('/barcode-types/search','search');
         Route::get('/barcode-type/{id}','show');
+        Route::post('/barcode-type/new','store');
         Route::put('/barcode-type/edit/{id}','update');
         Route::delete('/barcode-type/remove/{id}','destroy');
     });
@@ -82,6 +85,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/customers','index');
         Route::get('/customers/search','search');
         Route::get('/customer/{id}','show');
+        Route::post('/customer/new','store');
         Route::put('/customer/edit/{id}','update');
         Route::delete('/customer/remove/{id}','destroy');
     });
@@ -92,6 +96,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/suppliers','index');
         Route::get('/suppliers/search','search');
         Route::get('/supplier/{id}','show');
+        Route::post('/supplier/new','store');
         Route::put('/supplier/edit/{id}','update');
         Route::delete('/supplier/remove/{id}','destroy');
     });
@@ -102,8 +107,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/brands','index');
         Route::get('/brands/search','search');
         Route::get('/brand/{id}','show');
+        Route::post('/brand/new','store');
         Route::put('/brand/edit/{id}','update');
         Route::delete('/brand/remove/{id}','destroy');
+        Route::delete('/brand/image/remove/{id}','destroyPicture');
     });
 
     // Category
@@ -112,7 +119,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/categories','index');
         Route::get('/categories/search','search');
         Route::get('/category/{id}','show');
+        Route::post('/category/new','store');
         Route::put('/category/edit/{id}','update');
         Route::delete('/category/remove/{id}','destroy');
+        Route::delete('/category/image/remove/{id}','destroyPicture');
     });
 });

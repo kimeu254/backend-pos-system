@@ -14,7 +14,9 @@ class UnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name','short_name','value'
+            'name' => 'required',
+            'short_name' => 'required',
+            'value' => 'required'
         ];
     }
 }

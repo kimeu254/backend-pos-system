@@ -185,4 +185,28 @@ class CategoryController extends Controller
             ], 400);
         }
     }
+
+    public function destroyPicture(string $id): JsonResponse
+    {
+        try
+        {
+            $category = Category::findOrFail($id);
+
+            if ($category->image)
+            {
+                (new DestroyImageService)->destroyImage($category,'app/public/categories/');
+            }
+
+            return response()->json([
+                'message' => 'Image removed.'
+            ]);
+        }
+        catch (\Exception $e)
+        {
+            return response()->json([
+                'message' => 'Oops! Something went wrong.',
+                'error' => $e->getMessage()
+            ], 400);
+        }
+    }
 }

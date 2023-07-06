@@ -14,7 +14,8 @@ class TaxRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name','rate'
+            'name' => 'required',
+            'rate' => 'required'
         ];
     }
 }
